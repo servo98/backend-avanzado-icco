@@ -1,10 +1,5 @@
 import { Schema, model } from 'mongoose';
 
-const actorSchema = new Schema({
-  name: String,
-  gender: String,
-});
-
 /**
  * Cosas necesarias para hacer un modelo en mongoose
  *
@@ -17,4 +12,8 @@ const actorSchema = new Schema({
 
 /**Nota: los nombres de los modelos deben ser en singular y que inicien con Mayus */
 
+const actorSchema = new Schema({
+  name: String,
+  gender: String,
+});
 export default model('Actor', actorSchema);
