@@ -6,6 +6,8 @@ const PORT = 8000;
 
 const api = express();
 
+api.use(express.json());
+
 api.use('/actors', actorRouter);
 
 api.get('/test', (req, res) => {

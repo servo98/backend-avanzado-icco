@@ -13,7 +13,13 @@ import { Schema, model } from 'mongoose';
 /**Nota: los nombres de los modelos deben ser en singular y que inicien con Mayus */
 
 const actorSchema = new Schema({
-  name: String,
-  gender: String,
+  name: {
+    type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+  },
 });
 export default model('Actor', actorSchema);

@@ -19,9 +19,9 @@ const actorRouter = Router();
  */
 
 actorRouter.get('/', actorController.getList);
-actorRouter.get('/:id', actorController.getById);
+actorRouter.get('/:actorId', actorController.getById);
 actorRouter.post('/', actorController.create);
-actorRouter.put('/:id', actorController.update);
-actorRouter.delete('/:id', actorController.remove);
+actorRouter.put('/:actorId', actorController.update);
+actorRouter.delete('/:actorId', actorController.remove);
 
 export default actorRouter;
