@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as actorController from '../controllers/actorController.js';
+import authenticated from '../middlwares/authenticated.js';
 
 const actorRouter = Router();
 
@@ -17,6 +18,8 @@ const actorRouter = Router();
  * PUT /actors/:id Actualizar actor por id
  * DELETE /actors/:id Borrar actor por id
  */
+
+actorRouter.use(authenticated);
 
 actorRouter.get('/', actorController.getList);
 actorRouter.get('/:actorId', actorController.getById);
