@@ -6,6 +6,8 @@
 
 import { Router } from 'express';
 import * as authController from '../controllers/authController.js';
+import validateBody from '../middlewares/validateBody.js';
+import createUserSchema from '../schemas/createUserSchema.js';
 
 const authRouter = Router();
 
@@ -20,7 +22,11 @@ const authRouter = Router();
  * OPTIONS
  */
 
-authRouter.post('/register', authController.register);
+authRouter.post(
+  '/register',
+  validateBody(createUserSchema),
+  authController.register
+);
 authRouter.post('/login', authController.login);
 
 export default authRouter;

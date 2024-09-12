@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import * as actorController from '../controllers/actorController.js';
-import authenticated from '../middlwares/authenticated.js';
+import authenticated from '../middlewares/authenticated.js';
+import validateBody from '../middlewares/validateBody.js';
+import createActorSchema from '../schemas/createActorSchema.js';
 
 const actorRouter = Router();
 
@@ -23,7 +25,8 @@ actorRouter.use(authenticated);
 
 actorRouter.get('/', actorController.getList);
 actorRouter.get('/:actorId', actorController.getById);
-actorRouter.post('/', actorController.create);
+//Validamos el req.body con el schema
+actorRouter.post('/', validateBody(createActorSchema), actorController.create);
 actorRouter.put('/:actorId', actorController.update);
 actorRouter.delete('/:actorId', actorController.remove);
 

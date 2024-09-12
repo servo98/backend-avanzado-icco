@@ -22,4 +22,5 @@ const actorSchema = new Schema({
     required: true,
   },
 });
+
 export default model('Actor', actorSchema);

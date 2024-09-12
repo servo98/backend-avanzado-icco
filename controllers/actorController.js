@@ -42,6 +42,7 @@ const create = async (req, res) => {
     });
   }
 };
+
 const update = async (req, res) => {
   try {
     const actor = await Actor.findByIdAndUpdate(req.params.actorId, req.body, {
