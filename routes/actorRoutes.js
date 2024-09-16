@@ -3,6 +3,7 @@ import * as actorController from '../controllers/actorController.js';
 import authenticated from '../middlewares/authenticated.js';
 import validateBody from '../middlewares/validateBody.js';
 import createActorSchema from '../schemas/createActorSchema.js';
+import validateRole from '../middlewares/validateRole.js';
 
 const actorRouter = Router();
 
@@ -28,6 +29,10 @@ actorRouter.get('/:actorId', actorController.getById);
 //Validamos el req.body con el schema
 actorRouter.post('/', validateBody(createActorSchema), actorController.create);
 actorRouter.put('/:actorId', actorController.update);
-actorRouter.delete('/:actorId', actorController.remove);
+actorRouter.delete(
+  '/:actorId',
+  validateRole(['ADMIN']),
+  actorController.remove
+);
 
 export default actorRouter;

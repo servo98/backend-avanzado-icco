@@ -41,7 +41,7 @@ export const login = async (req, res) => {
         msg: 'Credenciales inválidas',
       });
     }
-    //Generar y mandar token token
+    //Generar y mandar token
     const token = jwt.encode(
       {
         userId: user.id,
