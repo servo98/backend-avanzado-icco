@@ -7,6 +7,10 @@ export const register = async (req, res) => {
   try {
     //Sobre escribir el body.password con un password encriptado
     req.body.password = await bcrypt.hash(req.body.password, 10);
+
+    //Asignar un avatar(foto de perfil) por default
+    req.body.avatar = `https://api.dicebear.com/9.x/thumbs/svg?seed=${req.body.email}`;
+
     const user = await User.create(req.body);
 
     return res.json({

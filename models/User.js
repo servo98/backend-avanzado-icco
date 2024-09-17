@@ -25,6 +25,9 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  avatar: {
+    type: String,
+  },
 });
 
 export default model('User', userSchema);
