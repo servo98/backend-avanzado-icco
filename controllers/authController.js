@@ -13,7 +13,7 @@ export const register = async (req, res) => {
 
     const user = await User.create(req.body);
 
-    return res.json({
+    return res.status(201).json({
       user,
     });
   } catch (error) {

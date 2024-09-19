@@ -1,11 +1,8 @@
 import express from 'express';
-import './database.js';
 import actorRouter from './routes/actorRoutes.js';
 import filmRouter from './routes/filmRoutes.js';
 import authRouter from './routes/authRoutes.js';
 import userRouter from './routes/userRoutes.js';
-
-const PORT = 8000;
 
 const api = express();
 
@@ -28,6 +25,4 @@ api.get('/', (req, res) => {
   });
 });
 
-api.listen(PORT, () => {
-  console.log(`API Corriendo en el puerto ${PORT}`);
-});
+export default api;

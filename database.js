@@ -8,5 +8,15 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', () => {
   console.log('Error en la conexión a base de datos');
 });
+export const connectDB = async () => {
+  const URI =
+    process.env.MONGO_URI +
+    `${process.env.NODE_ENV == 'test' ? 'pruebas' : ''}`;
 
-mongoose.connect(process.env.MONGO_URI);
+  console.log(`Conectado a la base con uri = ${URI}`);
+  await mongoose.connect(URI);
+};
+
+export const disconnectDB = async () => {
+  await mongoose.disconnect();
+};
